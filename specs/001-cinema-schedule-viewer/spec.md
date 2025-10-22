@@ -5,6 +5,16 @@
 **Status**: Draft
 **Input**: User description: "Build an application for viewing cinema schedule. Cinema has several halls. User should be able to see all movies currently displaying in the cinema, all halls, and movies schedule by halls and halls schedule by movies. For today and a week ahead. No need for admin part, all data should be hardcoded json data files. All images (movie covers etc) can be just public static images (or be at remote hosting)."
 
+## Clarifications
+
+### Session 2025-10-22
+
+- Q: What type of application should this be? → A: Single-page web application (SPA) - runs in browser, accessible on desktop and mobile
+- Q: Should the application display past showtimes (already started) for today? → A: Hide past showtimes, show only upcoming - filter out any showtime that has already started
+- Q: How should users navigate between different views? → A: Tab-based navigation - main tabs for "Movies", "Halls", "Schedule" with sub-views
+- Q: How should empty states be displayed when no showtimes are available? → A: Friendly message with explanation - "No showtimes available for [date/movie/hall]"
+- Q: What additional details should be shown on a movie detail view? → A: Basic details plus showtimes - show existing attributes (genre, duration, rating, description) + all showtimes
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Browse Current Movies (Priority: P1)
@@ -17,9 +27,10 @@ A cinema visitor wants to quickly see what movies are currently showing at the c
 
 **UX Flow**:
 - User opens application
-- Immediately sees a grid/list of all currently showing movies
+- Sees tab-based navigation with "Movies", "Halls", "Schedule" tabs
+- "Movies" tab is active by default, displaying a grid/list of all currently showing movies
 - Each movie displays: cover image, title, genre, duration, rating
-- User can click on a movie to see more details and showtimes
+- User can click on a movie to see detail view with full description and all available showtimes
 
 **Acceptance Scenarios**:
 
@@ -38,7 +49,7 @@ A visitor wants to see the complete schedule for a specific cinema hall to under
 **Independent Test**: Can be fully tested by selecting a hall from the hall list and verifying that all showtimes for that hall are displayed chronologically for today and the upcoming week.
 
 **UX Flow**:
-- User navigates to halls section
+- User clicks on "Halls" tab in main navigation
 - User sees list of all cinema halls (with basic info like capacity, features)
 - User selects a specific hall
 - System displays chronological schedule showing: date, time, movie title, duration
@@ -70,10 +81,10 @@ A visitor has decided on a specific movie and wants to see all available showtim
 
 **Acceptance Scenarios**:
 
-1. **Given** a movie is selected, **When** the user views showtimes, **Then** all screenings of that movie are displayed across all halls
+1. **Given** a movie is selected, **When** the user views showtimes, **Then** all upcoming screenings of that movie are displayed across all halls
 2. **Given** showtimes are displayed, **When** the user views the schedule, **Then** showtimes are grouped by date for easy scanning
 3. **Given** a movie plays in multiple halls, **When** viewing showtimes, **Then** each showtime clearly indicates which hall it's in
-4. **Given** today is selected, **When** viewing showtimes, **Then** both past and future showtimes for today are visible (or only future showtimes if past ones are filtered)
+4. **Given** today is selected, **When** viewing showtimes, **Then** only future showtimes (that haven't started yet) are displayed
 
 ---
 
@@ -101,21 +112,24 @@ A visitor planning ahead wants to see the schedule for a specific future date to
 
 ### Edge Cases
 
-- What happens when a hall has no scheduled movies for a given date?
-- What happens when a movie has no scheduled showtimes for a given date?
-- How does the system handle movies that end their run partway through the 7-day window?
-- What happens if movie cover images fail to load or are missing?
-- How are showtimes displayed when they span across midnight (late-night screenings)?
-- What happens when multiple movies have the same start time in different halls?
+- When a hall has no scheduled movies for a given date, display "No showtimes available for [Hall Name] on [Date]"
+- When a movie has no scheduled showtimes for a given date, display "No showtimes available for [Movie Title] on [Date]"
+- Movies that end their run partway through the 7-day window only show showtimes up to their final screening
+- Movie cover images that fail to load or are missing are replaced with placeholder images
+- Showtimes that span across midnight (late-night screenings) are associated with the date on which they start
+- Multiple movies with the same start time in different halls are displayed as separate entries with hall identification
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
 - **FR-001**: System MUST display all currently showing movies with title, cover image, genre, duration, and rating
+- **FR-001a**: Application MUST be a single-page web application accessible via web browsers on both desktop and mobile devices
+- **FR-001b**: Application MUST provide tab-based navigation with main tabs for "Movies", "Halls", and "Schedule"
 - **FR-002**: System MUST display a list of all cinema halls with identifying information
 - **FR-003**: System MUST show complete schedule for any selected hall, displaying date, time, and movie information
 - **FR-004**: System MUST show all showtimes for any selected movie across all halls
+- **FR-004a**: System MUST provide a movie detail view displaying cover image, title, genre, duration, rating, description, and all available showtimes
 - **FR-005**: System MUST display schedules for today and up to 7 days in advance
 - **FR-006**: System MUST group showtimes by date when displaying movie schedules
 - **FR-007**: System MUST display showtimes in chronological order within each day
@@ -126,7 +140,8 @@ A visitor planning ahead wants to see the schedule for a specific future date to
 - **FR-012**: System MUST handle missing or failed image loads gracefully with placeholder images
 - **FR-013**: System MUST allow users to filter schedules by selecting specific dates within the 7-day range
 - **FR-014**: System MUST default to showing today's date when first loaded
-- **FR-015**: System MUST clearly indicate when no showtimes are available for a selected date/movie/hall combination
+- **FR-015**: System MUST display a friendly message with explanation when no showtimes are available (e.g., "No showtimes available for [date/movie/hall]")
+- **FR-016**: System MUST filter out past showtimes (showtimes that have already started) and display only upcoming showtimes
 
 ### Key Entities
 
@@ -148,6 +163,7 @@ A visitor planning ahead wants to see the schedule for a specific future date to
 
 ## Assumptions
 
+- Application will be accessed via modern web browsers (Chrome, Firefox, Safari, Edge)
 - Users have basic familiarity with web/mobile applications and can navigate standard UI patterns
 - Cinema operates on a standard daily schedule (not 24/7)
 - All showtimes are in the same timezone as the user
