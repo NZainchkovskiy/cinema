@@ -9,38 +9,117 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LayoutScheduleIndexRouteImport } from './routes/_layout/schedule.index'
+import { Route as LayoutMoviesIndexRouteImport } from './routes/_layout/movies.index'
+import { Route as LayoutHallsIndexRouteImport } from './routes/_layout/halls.index'
+import { Route as LayoutMoviesMovieIdRouteImport } from './routes/_layout/movies.$movieId'
+import { Route as LayoutHallsHallIdRouteImport } from './routes/_layout/halls.$hallId'
 
+const LayoutRoute = LayoutRouteImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LayoutScheduleIndexRoute = LayoutScheduleIndexRouteImport.update({
+  id: '/schedule/',
+  path: '/schedule/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutMoviesIndexRoute = LayoutMoviesIndexRouteImport.update({
+  id: '/movies/',
+  path: '/movies/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutHallsIndexRoute = LayoutHallsIndexRouteImport.update({
+  id: '/halls/',
+  path: '/halls/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutMoviesMovieIdRoute = LayoutMoviesMovieIdRouteImport.update({
+  id: '/movies/$movieId',
+  path: '/movies/$movieId',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutHallsHallIdRoute = LayoutHallsHallIdRouteImport.update({
+  id: '/halls/$hallId',
+  path: '/halls/$hallId',
+  getParentRoute: () => LayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/halls/$hallId': typeof LayoutHallsHallIdRoute
+  '/movies/$movieId': typeof LayoutMoviesMovieIdRoute
+  '/halls': typeof LayoutHallsIndexRoute
+  '/movies': typeof LayoutMoviesIndexRoute
+  '/schedule': typeof LayoutScheduleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/halls/$hallId': typeof LayoutHallsHallIdRoute
+  '/movies/$movieId': typeof LayoutMoviesMovieIdRoute
+  '/halls': typeof LayoutHallsIndexRoute
+  '/movies': typeof LayoutMoviesIndexRoute
+  '/schedule': typeof LayoutScheduleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/halls/$hallId': typeof LayoutHallsHallIdRoute
+  '/_layout/movies/$movieId': typeof LayoutMoviesMovieIdRoute
+  '/_layout/halls/': typeof LayoutHallsIndexRoute
+  '/_layout/movies/': typeof LayoutMoviesIndexRoute
+  '/_layout/schedule/': typeof LayoutScheduleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/halls/$hallId'
+    | '/movies/$movieId'
+    | '/halls'
+    | '/movies'
+    | '/schedule'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/halls/$hallId'
+    | '/movies/$movieId'
+    | '/halls'
+    | '/movies'
+    | '/schedule'
+  id:
+    | '__root__'
+    | '/'
+    | '/_layout'
+    | '/_layout/halls/$hallId'
+    | '/_layout/movies/$movieId'
+    | '/_layout/halls/'
+    | '/_layout/movies/'
+    | '/_layout/schedule/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LayoutRoute: typeof LayoutRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +127,66 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_layout/schedule/': {
+      id: '/_layout/schedule/'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof LayoutScheduleIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/movies/': {
+      id: '/_layout/movies/'
+      path: '/movies'
+      fullPath: '/movies'
+      preLoaderRoute: typeof LayoutMoviesIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/halls/': {
+      id: '/_layout/halls/'
+      path: '/halls'
+      fullPath: '/halls'
+      preLoaderRoute: typeof LayoutHallsIndexRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/movies/$movieId': {
+      id: '/_layout/movies/$movieId'
+      path: '/movies/$movieId'
+      fullPath: '/movies/$movieId'
+      preLoaderRoute: typeof LayoutMoviesMovieIdRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/halls/$hallId': {
+      id: '/_layout/halls/$hallId'
+      path: '/halls/$hallId'
+      fullPath: '/halls/$hallId'
+      preLoaderRoute: typeof LayoutHallsHallIdRouteImport
+      parentRoute: typeof LayoutRoute
+    }
   }
 }
 
+interface LayoutRouteChildren {
+  LayoutHallsHallIdRoute: typeof LayoutHallsHallIdRoute
+  LayoutMoviesMovieIdRoute: typeof LayoutMoviesMovieIdRoute
+  LayoutHallsIndexRoute: typeof LayoutHallsIndexRoute
+  LayoutMoviesIndexRoute: typeof LayoutMoviesIndexRoute
+  LayoutScheduleIndexRoute: typeof LayoutScheduleIndexRoute
+}
+
+const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutHallsHallIdRoute: LayoutHallsHallIdRoute,
+  LayoutMoviesMovieIdRoute: LayoutMoviesMovieIdRoute,
+  LayoutHallsIndexRoute: LayoutHallsIndexRoute,
+  LayoutMoviesIndexRoute: LayoutMoviesIndexRoute,
+  LayoutScheduleIndexRoute: LayoutScheduleIndexRoute,
+}
+
+const LayoutRouteWithChildren =
+  LayoutRoute._addFileChildren(LayoutRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LayoutRoute: LayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

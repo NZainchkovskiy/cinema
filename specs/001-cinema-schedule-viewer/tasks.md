@@ -59,13 +59,13 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T011 Create data service layer in src/services/cinemaService.ts for loading and parsing JSON data
-- [ ] T012 Implement date utility functions in src/lib/utils.ts (date formatting, showtime filtering, date range generation)
-- [ ] T013 Create base layout component with tab navigation in src/components/layout/Navigation.tsx
-- [ ] T014 Setup root layout route in src/routes/_layout.tsx with tab-based navigation structure
-- [ ] T015 [P] Implement data loading context in src/contexts/DataContext.tsx for sharing movie/hall/showtime data
-- [ ] T016 [P] Create placeholder image component in src/components/ui/placeholder-image.tsx for failed image loads
-- [ ] T017 Configure error boundaries for graceful error handling across the app
+- [X] T011 Create data service layer in src/services/cinemaService.ts for loading and parsing JSON data
+- [X] T012 Implement date utility functions in src/lib/utils.ts (date formatting, showtime filtering, date range generation)
+- [X] T013 Create base layout component with tab navigation in src/components/layout/Navigation.tsx
+- [X] T014 Setup root layout route in src/routes/_layout.tsx with tab-based navigation structure
+- [X] T015 [P] Implement data loading context in src/contexts/DataContext.tsx for sharing movie/hall/showtime data
+- [X] T016 [P] Create placeholder image component in src/components/ui/placeholder-image.tsx for failed image loads
+- [X] T017 Configure error boundaries for graceful error handling across the app
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -79,17 +79,17 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T018 [P] [US1] Create MovieCard component in src/components/cinema/MovieCard.tsx using shadcn Card
-- [ ] T019 [P] [US1] Create movie list route in src/routes/movies/index.tsx displaying all movies in responsive grid
-- [ ] T020 [US1] Create movie detail route in src/routes/movies/$movieId.tsx for individual movie view
-- [ ] T021 [P] [US1] Create MovieDetail component in src/components/cinema/MovieDetail.tsx with full movie information
-- [ ] T022 [US1] Implement movie data fetching in the movies route using cinemaService
-- [ ] T023 [US1] Add loading states using shadcn Skeleton component for movie list and detail views
-- [ ] T024 [US1] Add empty state handling when no movies are available ("No movies currently showing")
-- [ ] T025 [US1] Implement image error handling with placeholder images for failed cover loads
-- [ ] T026 [US1] Visual polish pass: card hover effects, consistent spacing, typography hierarchy
-- [ ] T027 [US1] Ensure responsive grid layout (1 column mobile, 2-3 tablet, 4+ desktop)
-- [ ] T028 [US1] Add navigation from movie list to movie detail with proper routing
+- [X] T018 [P] [US1] Create MovieCard component in src/components/cinema/MovieCard.tsx using shadcn Card
+- [X] T019 [P] [US1] Create movie list route in src/routes/movies/index.tsx displaying all movies in responsive grid
+- [X] T020 [US1] Create movie detail route in src/routes/movies/$movieId.tsx for individual movie view
+- [X] T021 [P] [US1] Create MovieDetail component in src/components/cinema/MovieDetail.tsx with full movie information
+- [X] T022 [US1] Implement movie data fetching in the movies route using cinemaService
+- [X] T023 [US1] Add loading states using shadcn Skeleton component for movie list and detail views
+- [X] T024 [US1] Add empty state handling when no movies are available ("No movies currently showing")
+- [X] T025 [US1] Implement image error handling with placeholder images for failed cover loads
+- [X] T026 [US1] Visual polish pass: card hover effects, consistent spacing, typography hierarchy
+- [X] T027 [US1] Ensure responsive grid layout (1 column mobile, 2-3 tablet, 4+ desktop)
+- [X] T028 [US1] Add navigation from movie list to movie detail with proper routing
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -103,18 +103,18 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T029 [P] [US2] Create HallCard component in src/components/cinema/HallCard.tsx displaying hall info with features
-- [ ] T030 [P] [US2] Create halls list route in src/routes/halls/index.tsx showing all cinema halls
-- [ ] T031 [US2] Create hall schedule route in src/routes/halls/$hallId.tsx for individual hall schedules
-- [ ] T032 [P] [US2] Create HallSchedule component in src/components/cinema/HallSchedule.tsx with chronological showtime display
-- [ ] T033 [P] [US2] Create ShowtimeList component in src/components/cinema/ShowtimeList.tsx for rendering showtime entries
-- [ ] T034 [US2] Implement getHallSchedule function in cinemaService.ts to fetch and filter hall showtimes
-- [ ] T035 [US2] Add date grouping for hall schedule (group showtimes by date)
-- [ ] T036 [US2] Filter out past showtimes (already started) from hall schedules
-- [ ] T037 [US2] Add loading states for hall list and schedule views using Skeleton components
-- [ ] T038 [US2] Add empty state for halls with no scheduled showtimes ("No showtimes available for [Hall Name]")
-- [ ] T039 [US2] Visual polish pass: hall capacity badges, feature tags, showtime cards with proper spacing
-- [ ] T040 [US2] Ensure movie information is clearly displayed for each showtime in hall view
+- [X] T029 [P] [US2] Create HallCard component in src/components/cinema/HallCard.tsx displaying hall info with features
+- [X] T030 [P] [US2] Create halls list route in src/routes/halls/index.tsx showing all cinema halls
+- [X] T031 [US2] Create hall schedule route in src/routes/halls/$hallId.tsx for individual hall schedules
+- [X] T032 [P] [US2] Create HallSchedule component in src/components/cinema/HallSchedule.tsx with chronological showtime display
+- [X] T033 [P] [US2] Create ShowtimeList component in src/components/cinema/ShowtimeList.tsx for rendering showtime entries
+- [X] T034 [US2] Implement getHallSchedule function in cinemaService.ts to fetch and filter hall showtimes
+- [X] T035 [US2] Add date grouping for hall schedule (group showtimes by date)
+- [X] T036 [US2] Filter out past showtimes (already started) from hall schedules
+- [X] T037 [US2] Add loading states for hall list and schedule views using Skeleton components
+- [X] T038 [US2] Add empty state for halls with no scheduled showtimes ("No showtimes available for [Hall Name]")
+- [X] T039 [US2] Visual polish pass: hall capacity badges, feature tags, showtime cards with proper spacing
+- [X] T040 [US2] Ensure movie information is clearly displayed for each showtime in hall view
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -128,17 +128,17 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T041 [US3] Extend MovieDetail component to include ShowtimesByMovie section
-- [ ] T042 [P] [US3] Create MovieShowtimes component in src/components/cinema/MovieShowtimes.tsx for displaying all movie showtimes
-- [ ] T043 [US3] Implement getMovieShowtimes function in cinemaService.ts to fetch showtimes across all halls
-- [ ] T044 [US3] Group movie showtimes by date for easy scanning
-- [ ] T045 [US3] Display hall information clearly for each showtime (hall name, features)
-- [ ] T046 [US3] Filter out past showtimes from the movie schedule display
-- [ ] T047 [US3] Add loading state for movie showtimes section
-- [ ] T048 [US3] Add empty state when movie has no upcoming showtimes ("No showtimes available for [Movie Title]")
-- [ ] T049 [US3] Visual polish pass: showtime badges, hall indicators, consistent date formatting
-- [ ] T050 [US3] Integrate showtimes display into movie detail page seamlessly
-- [ ] T051 [US3] Add quick navigation from showtime to hall schedule view
+- [X] T041 [US3] Extend MovieDetail component to include ShowtimesByMovie section
+- [X] T042 [P] [US3] Create MovieShowtimes component in src/components/cinema/MovieShowtimes.tsx for displaying all movie showtimes
+- [X] T043 [US3] Implement getMovieShowtimes function in cinemaService.ts to fetch showtimes across all halls
+- [X] T044 [US3] Group movie showtimes by date for easy scanning
+- [X] T045 [US3] Display hall information clearly for each showtime (hall name, features)
+- [X] T046 [US3] Filter out past showtimes from the movie schedule display
+- [X] T047 [US3] Add loading state for movie showtimes section
+- [X] T048 [US3] Add empty state when movie has no upcoming showtimes ("No showtimes available for [Movie Title]")
+- [X] T049 [US3] Visual polish pass: showtime badges, hall indicators, consistent date formatting
+- [X] T050 [US3] Integrate showtimes display into movie detail page seamlessly
+- [X] T051 [US3] Add quick navigation from showtime to hall schedule view
 
 **Checkpoint**: User Stories 1, 2, and 3 should now be independently functional
 
@@ -172,11 +172,11 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 **Purpose**: Create a unified schedule view showing all movies and halls
 
-- [ ] T063 [P] Create schedule route in src/routes/schedule/index.tsx for combined view
-- [ ] T064 [P] Create CombinedSchedule component in src/components/cinema/CombinedSchedule.tsx
-- [ ] T065 Implement getDailySchedule function in cinemaService.ts for fetching all showtimes
-- [ ] T066 Add view toggle (by movie / by hall) in combined schedule
-- [ ] T067 Visual polish pass: clear visual hierarchy, proper grouping, consistent styling
+- [X] T063 [P] Create schedule route in src/routes/schedule/index.tsx for combined view
+- [X] T064 [P] Create CombinedSchedule component in src/components/cinema/CombinedSchedule.tsx
+- [X] T065 Implement getDailySchedule function in cinemaService.ts for fetching all showtimes
+- [X] T066 Add view toggle (by movie / by hall) in combined schedule
+- [X] T067 Visual polish pass: clear visual hierarchy, proper grouping, consistent styling
 
 ---
 
@@ -184,16 +184,16 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T068 [P] Global visual consistency check (colors, fonts, spacing, shadows)
-- [ ] T069 [P] Mobile responsiveness verification for all views (test on various screen sizes)
-- [ ] T070 Comprehensive manual testing of all user flows (movie browse, hall schedule, movie schedule, date filtering)
-- [ ] T071 Performance check: optimize image loading with lazy loading
-- [ ] T072 [P] Add subtle animations and transitions (card hover, route transitions, tab switches)
-- [ ] T073 Implement proper SEO meta tags in index.html
-- [ ] T074 [P] Create README.md with setup instructions and feature overview
-- [ ] T075 Verify all error states and edge cases are handled gracefully
-- [ ] T076 [P] Add favicon and app manifest for better PWA support
-- [ ] T077 Final build optimization check (bundle size, code splitting verification)
+- [X] T068 [P] Global visual consistency check (colors, fonts, spacing, shadows)
+- [X] T069 [P] Mobile responsiveness verification for all views (test on various screen sizes)
+- [X] T070 Comprehensive manual testing of all user flows (movie browse, hall schedule, movie schedule, date filtering)
+- [X] T071 Performance check: optimize image loading with lazy loading
+- [X] T072 [P] Add subtle animations and transitions (card hover, route transitions, tab switches)
+- [X] T073 Implement proper SEO meta tags in index.html
+- [X] T074 [P] Create README.md with setup instructions and feature overview
+- [X] T075 Verify all error states and edge cases are handled gracefully
+- [X] T076 [P] Add favicon and app manifest for better PWA support
+- [X] T077 Final build optimization check (bundle size, code splitting verification)
 
 ---
 
