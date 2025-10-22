@@ -1,0 +1,26 @@
+[
+  {
+    "id": "hall-1",
+    "name": "Main Theater",
+    "capacity": 250,
+    "features": ["Dolby Atmos", "Recliner Seats"]
+  },
+  {
+    "id": "hall-2",
+    "name": "IMAX Theater",
+    "capacity": 400,
+    "features": ["IMAX", "3D", "Laser Projection"]
+  },
+  {
+    "id": "hall-3",
+    "name": "Premium Screen",
+    "capacity": 180,
+    "features": ["4K", "Dolby Vision", "Premium Sound"]
+  },
+  {
+    "id": "hall-4",
+    "name": "Family Hall",
+    "capacity": 150,
+    "features": ["Standard", "Family Friendly"]
+  }
+]

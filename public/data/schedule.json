@@ -1,0 +1,107 @@
+[
+  {
+    "id": "show-1",
+    "movieId": "movie-1",
+    "hallId": "hall-2",
+    "date": "2025-10-22",
+    "startTime": "14:00"
+  },
+  {
+    "id": "show-2",
+    "movieId": "movie-1",
+    "hallId": "hall-2",
+    "date": "2025-10-22",
+    "startTime": "19:00"
+  },
+  {
+    "id": "show-3",
+    "movieId": "movie-2",
+    "hallId": "hall-4",
+    "date": "2025-10-22",
+    "startTime": "15:30"
+  },
+  {
+    "id": "show-4",
+    "movieId": "movie-2",
+    "hallId": "hall-4",
+    "date": "2025-10-22",
+    "startTime": "20:15"
+  },
+  {
+    "id": "show-5",
+    "movieId": "movie-3",
+    "hallId": "hall-2",
+    "date": "2025-10-23",
+    "startTime": "16:00"
+  },
+  {
+    "id": "show-6",
+    "movieId": "movie-3",
+    "hallId": "hall-1",
+    "date": "2025-10-23",
+    "startTime": "21:00"
+  },
+  {
+    "id": "show-7",
+    "movieId": "movie-4",
+    "hallId": "hall-1",
+    "date": "2025-10-22",
+    "startTime": "17:00"
+  },
+  {
+    "id": "show-8",
+    "movieId": "movie-4",
+    "hallId": "hall-3",
+    "date": "2025-10-23",
+    "startTime": "18:30"
+  },
+  {
+    "id": "show-9",
+    "movieId": "movie-5",
+    "hallId": "hall-4",
+    "date": "2025-10-22",
+    "startTime": "12:00"
+  },
+  {
+    "id": "show-10",
+    "movieId": "movie-5",
+    "hallId": "hall-3",
+    "date": "2025-10-22",
+    "startTime": "14:30"
+  },
+  {
+    "id": "show-11",
+    "movieId": "movie-1",
+    "hallId": "hall-1",
+    "date": "2025-10-24",
+    "startTime": "15:00"
+  },
+  {
+    "id": "show-12",
+    "movieId": "movie-2",
+    "hallId": "hall-3",
+    "date": "2025-10-24",
+    "startTime": "16:00"
+  },
+  {
+    "id": "show-13",
+    "movieId": "movie-3",
+    "hallId": "hall-2",
+    "date": "2025-10-24",
+    "startTime": "20:00"
+  },
+  {
+    "id": "show-14",
+    "movieId": "movie-4",
+    "hallId": "hall-1",
+    "date": "2025-10-25",
+    "startTime": "19:30"
+  },
+  {
+    "id": "show-15",
+    "movieId": "movie-5",
+    "hallId": "hall-4",
+    "date": "2025-10-25",
+    "startTime": "13:00"
+  }
+]

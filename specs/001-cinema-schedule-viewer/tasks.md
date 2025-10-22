@@ -40,16 +40,16 @@ description: "Task list for Cinema Schedule Viewer feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create Vite project with React and TypeScript template (npm create vite@latest . -- --template react-ts)
-- [ ] T002 Install and configure core dependencies (Tanstack Router, shadcn/ui, Tailwind CSS)
-- [ ] T003 [P] Configure Vite with Tanstack Router plugin in vite.config.ts
-- [ ] T004 [P] Initialize shadcn/ui with Tailwind CSS configuration
-- [ ] T005 [P] Install required shadcn components (tabs, card, badge, skeleton, alert, button, separator, scroll-area)
-- [ ] T006 Create project directory structure per plan.md (src/components/, src/routes/, src/lib/, src/types/, src/services/, public/data/, public/images/)
-- [ ] T007 [P] Create TypeScript interfaces for Movie, Hall, and Showtime entities in src/types/index.ts
-- [ ] T008 [P] Add sample JSON data files in public/data/ (movies.json, halls.json, schedule.json)
-- [ ] T009 Setup Tanstack Router root route in src/routes/__root.tsx with basic layout
-- [ ] T010 Configure main.tsx with RouterProvider and router configuration
+- [X] T001 Create Vite project with React and TypeScript template (npm create vite@latest . -- --template react-ts)
+- [X] T002 Install and configure core dependencies (Tanstack Router, shadcn/ui, Tailwind CSS)
+- [X] T003 [P] Configure Vite with Tanstack Router plugin in vite.config.ts
+- [X] T004 [P] Initialize shadcn/ui with Tailwind CSS v4 configuration
+- [X] T005 [P] Install required shadcn components (tabs, card, badge, skeleton, alert, button, separator, scroll-area)
+- [X] T006 Create project directory structure per plan.md (src/components/, src/routes/, src/lib/, src/types/, src/services/, public/data/, public/images/)
+- [X] T007 [P] Create TypeScript interfaces for Movie, Hall, and Showtime entities in src/types/index.ts
+- [X] T008 [P] Add sample JSON data files in public/data/ (movies.json, halls.json, schedule.json)
+- [X] T009 Setup Tanstack Router root route in src/routes/__root.tsx with basic layout
+- [X] T010 Configure main.tsx with RouterProvider and router configuration
 
 ---
 
