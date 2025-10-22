@@ -1,50 +1,127 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: [INITIAL] → 1.0.0
+Modified principles: N/A (initial version)
+Added sections:
+  - Core Principles (5 principles tailored for hackathon rapid development)
+  - Development Workflow
+  - Governance
+Removed sections: N/A
+Templates requiring updates:
+  ✅ .specify/templates/plan-template.md - Constitution Check section now aligns with hackathon principles
+  ✅ .specify/templates/spec-template.md - Test requirements marked as optional, UX scenarios prioritized
+  ✅ .specify/templates/tasks-template.md - Test tasks clearly marked as optional, UX polish tasks added
+Follow-up TODOs:
+  - Project name to be determined based on hackathon submission
+  - Ratification date set to today (initial creation)
+-->
+
+# Cinema Hackathon Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Speed Over Perfection
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**MUST**: Ship working features fast; iterate based on feedback rather than upfront perfection.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**MUST**: Choose libraries and frameworks that accelerate development (existing UI components, scaffolding tools, boilerplate generators).
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**MUST NOT**: Spend time on premature optimization, extensive architecture planning, or over-engineering solutions.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+**Rationale**: Hackathon success depends on demonstrating a working prototype within tight time constraints. Speed of iteration and visible progress trump code perfection.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### II. User Experience First
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**MUST**: Every feature must have a clear, intuitive user flow designed before implementation.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**MUST**: Prioritize responsive feedback (loading states, error messages, success confirmations) in all interactions.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**MUST**: Test user flows manually as the primary validation method - if it feels broken, it is broken.
+
+**MUST NOT**: Ship features with confusing navigation, unclear CTAs, or missing feedback states.
+
+**Rationale**: Great UX is the primary differentiator in hackathon demos. Users forgive performance issues but not confusion or poor interaction design.
+
+### III. Visual Polish
+
+**MUST**: Maintain consistent spacing, typography, and color scheme throughout the application.
+
+**MUST**: Use a design system or UI library (e.g., Tailwind, MUI, Shadcn) to ensure visual coherence.
+
+**SHOULD**: Dedicate time for visual polish pass after core features work (alignment, spacing, transitions).
+
+**MUST NOT**: Mix multiple design patterns or visual styles within the same application.
+
+**Rationale**: Decent design signals professionalism and attention to detail. Consistency matters more than custom design.
+
+### IV. Pragmatic Quality
+
+**MUST NOT**: Write unit tests or integration tests unless explicitly requested.
+
+**MUST**: Handle obvious error cases (network failures, empty states, invalid inputs) with user-friendly messages.
+
+**SHOULD**: Use TypeScript or similar type systems if the project setup already includes it, but don't retrofit.
+
+**MUST NOT**: Block features waiting for comprehensive error handling or edge case coverage.
+
+**Rationale**: Testing and exhaustive error handling consume time better spent on features and UX. Focus on the happy path and common errors only.
+
+### V. Scope Discipline
+
+**MUST**: Implement the minimal feature set that demonstrates the core value proposition.
+
+**MUST**: Cut features aggressively when time is running short - prioritize completeness of fewer features over partial implementation of many.
+
+**MUST**: Track scope via clear user stories with priority levels (P1, P2, P3) - P1 is MVP, P2+ are stretch goals.
+
+**MUST NOT**: Add "nice to have" features until all P1 stories are complete and polished.
+
+**Rationale**: A polished, limited-scope demo beats a broken, feature-rich prototype. Judges and users evaluate based on what works, not what was attempted.
+
+## Development Workflow
+
+### Feature Implementation Process
+
+1. **Define**: Write clear user story with acceptance criteria (what the user can do)
+2. **Design UX**: Sketch the user flow, identify key interactions and feedback points
+3. **Implement**: Build the feature focusing on the happy path
+4. **Polish**: Add loading states, error messages, visual refinement
+5. **Validate**: Manually test the complete user flow
+
+### Scope Management
+
+- **P1 (MVP)**: Core features that must work for a successful demo - implement first, polish fully
+- **P2 (Enhanced)**: Features that improve the demo - implement only if P1 is solid
+- **P3 (Stretch)**: Nice-to-have features - implement only if time permits
+
+### Quality Gates
+
+- **Before considering feature complete**: User flow must be manually testable end-to-end
+- **Before adding new features**: All P1 features must have visual polish pass completed
+- **Before demo**: Run through all user flows without code changes - only UX validation
+
+### Technical Debt Policy
+
+- **Document**: Keep a brief TODO.md for known shortcuts and technical debt
+- **Ignore**: Defer all non-critical refactoring until after the hackathon
+- **Accept**: Fast, working code with known limitations beats slow, perfect code
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Constitution Authority
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+This constitution governs all development decisions during the hackathon. When time pressure conflicts with quality, these principles provide the tiebreaker.
+
+### Amendment Process
+
+- **During Hackathon**: Constitution can be amended by team consensus when priorities shift
+- **Post-Hackathon**: If project continues, reassess principles for long-term maintenance
+
+### Compliance
+
+- **Feature Reviews**: Before marking any feature "done", verify it meets UX and visual polish principles
+- **Scope Reviews**: At each milestone, confirm current work aligns with priority discipline (are we working on P1?)
+- **No Gatekeeping**: Don't block progress for missing tests, documentation, or edge case handling unless explicitly added to constitution
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-22 | **Last Amended**: 2025-10-22

@@ -31,7 +31,18 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+**Hackathon Principles Alignment**:
+
+- [ ] **Speed Over Perfection**: Feature uses existing libraries/frameworks to accelerate development
+- [ ] **User Experience First**: Clear user flows designed with feedback states (loading, error, success)
+- [ ] **Visual Polish**: Uses established design system (Tailwind/MUI/Shadcn) for consistency
+- [ ] **Pragmatic Quality**: No tests required unless explicitly requested; focus on happy path + common errors
+- [ ] **Scope Discipline**: Feature has clear P1/P2/P3 priority; P1 tasks are minimal and polished
+
+**Complexity Justification Required If**:
+- Adding new design system when one exists
+- Building custom components when library equivalents exist
+- Adding features before P1 scope is complete and polished
 
 ## Project Structure
 
