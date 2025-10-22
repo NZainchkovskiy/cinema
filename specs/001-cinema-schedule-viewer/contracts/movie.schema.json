@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cinema.app/schemas/movie.schema.json",
+  "title": "Movie",
+  "description": "Represents a film currently showing at the cinema",
+  "type": "object",
+  "required": ["id", "title", "genre", "duration", "rating", "coverImage"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the movie",
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "title": {
+      "type": "string",
+      "description": "Movie title",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "genre": {
+      "type": "string",
+      "description": "Genre classification",
+      "enum": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Biography",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Family",
+        "Fantasy",
+        "History",
+        "Horror",
+        "Musical",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Sport",
+        "Thriller",
+        "War",
+        "Western"
+      ]
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Runtime in minutes",
+      "minimum": 1,
+      "maximum": 500
+    },
+    "rating": {
+      "type": "string",
+      "description": "Age rating classification",
+      "enum": ["G", "PG", "PG-13", "R", "NC-17", "NR"]
+    },
+    "coverImage": {
+      "type": "string",
+      "description": "URL or path to cover image",
+      "pattern": "^(/|https?://).*\\.(jpg|jpeg|png|webp|gif)$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Movie synopsis",
+      "maxLength": 1000
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "movie-1",
+      "title": "Oppenheimer",
+      "genre": "Drama",
+      "duration": 180,
+      "rating": "R",
+      "coverImage": "/images/oppenheimer.jpg",
+      "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cinema.app/schemas/hall.schema.json",
+  "title": "Hall",
+  "description": "Represents a cinema screening room",
+  "type": "object",
+  "required": ["id", "name", "capacity"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the hall",
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Hall name or number",
+      "minLength": 1,
+      "maxLength": 100,
+      "examples": ["Hall 1", "IMAX Theater", "Main Theater", "VIP Room"]
+    },
+    "capacity": {
+      "type": "integer",
+      "description": "Total number of seats",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "features": {
+      "type": "array",
+      "description": "Special features of the hall",
+      "items": {
+        "type": "string",
+        "enum": [
+          "IMAX",
+          "3D",
+          "4D",
+          "Dolby Atmos",
+          "Laser Projection",
+          "Recliner Seats",
+          "VIP",
+          "Wheelchair Accessible",
+          "Stadium Seating",
+          "THX Certified"
+        ]
+      },
+      "uniqueItems": true,
+      "default": []
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "hall-1",
+      "name": "Main Theater",
+      "capacity": 250,
+      "features": ["Dolby Atmos", "Recliner Seats"]
+    },
+    {
+      "id": "hall-2",
+      "name": "IMAX",
+      "capacity": 400,
+      "features": ["IMAX", "3D", "Laser Projection"]
+    }
+  ]
+}

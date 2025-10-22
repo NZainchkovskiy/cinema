@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cinema.app/schemas/showtime.schema.json",
+  "title": "Showtime",
+  "description": "Represents a scheduled screening linking a movie to a hall at a specific time",
+  "type": "object",
+  "required": ["id", "movieId", "hallId", "date", "startTime"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the showtime",
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "movieId": {
+      "type": "string",
+      "description": "Reference to Movie.id",
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "hallId": {
+      "type": "string",
+      "description": "Reference to Hall.id",
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "date": {
+      "type": "string",
+      "description": "Date of the screening in YYYY-MM-DD format",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "startTime": {
+      "type": "string",
+      "description": "Start time in HH:MM format (24-hour)",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+      "examples": ["09:00", "14:30", "20:15", "23:45"]
+    },
+    "endTime": {
+      "type": "string",
+      "description": "Calculated end time in HH:MM format (optional, derived from movie duration)",
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "id": "show-1",
+      "movieId": "movie-1",
+      "hallId": "hall-1",
+      "date": "2025-10-22",
+      "startTime": "14:00"
+    },
+    {
+      "id": "show-2",
+      "movieId": "movie-2",
+      "hallId": "hall-2",
+      "date": "2025-10-22",
+      "startTime": "19:30"
+    }
+  ]
+}

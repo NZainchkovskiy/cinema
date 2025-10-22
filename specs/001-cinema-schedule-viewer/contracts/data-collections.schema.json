@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cinema.app/schemas/data-collections.schema.json",
+  "title": "Data Collections",
+  "description": "Schema definitions for JSON data file collections",
+  "definitions": {
+    "moviesCollection": {
+      "type": "array",
+      "description": "Collection of all movies",
+      "items": {
+        "$ref": "movie.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "hallsCollection": {
+      "type": "array",
+      "description": "Collection of all cinema halls",
+      "items": {
+        "$ref": "hall.schema.json"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "scheduleCollection": {
+      "type": "array",
+      "description": "Collection of all showtimes",
+      "items": {
+        "$ref": "showtime.schema.json"
+      },
+      "uniqueItems": true
+    }
+  },
+  "properties": {
+    "movies": {
+      "$ref": "#/definitions/moviesCollection"
+    },
+    "halls": {
+      "$ref": "#/definitions/hallsCollection"
+    },
+    "schedule": {
+      "$ref": "#/definitions/scheduleCollection"
+    }
+  }
+}
